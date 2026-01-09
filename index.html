@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Master AI Hub</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0d1117; font-family: sans-serif; }
+        .master-header {
+            background: #161b22;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+            height: 60px;
+            box-sizing: border-box;
+            color: white;
+        }
+        select {
+            background: #0d1117;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: 8px 12px;
+            border-radius: 6px;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #bot-frame {
+            width: 100%;
+            height: calc(100vh - 60px);
+            border: none;
+        }
+        .loading-screen {
+            position: absolute;
+            top: 60px; left: 0; width: 100%; height: 100%;
+            background: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #8b949e;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master-header">
+        <span><strong>MC Master AI</strong></span>
+        <select id="modelSwitcher" onchange="switchBot()">
+            <option value="https://ab2835569-web.github.io/MC_ChatBotPro">MC ChatBotPro</option>
+            <option value="https://ab2835569-web.github.io/Mc_chat_bot_pro_2-/">Mc Chat Bot Pro 2</option>
+            <option value="https://ab2835569-web.github.io/MC-/">MC- Lite</option>
+            <option value="https://ab2835569-web.github.io/Hare-Krishna/">Hare Krishna Bot</option>
+        </select>
+    </div>
+
+    <div class="loading-screen">ইঞ্জিন লোড হচ্ছে...</div>
+
+    <iframe id="bot-frame" src="https://ab2835569-web.github.io/MC_ChatBotPro"></iframe>
+
+    <script>
+        function switchBot() {
+            const frame = document.getElementById('bot-frame');
+            const selectedUrl = document.getElementById('modelSwitcher').value;
+            
+            // রিলোড ছাড়াই ফ্রেমের সোর্স পরিবর্তন করা
+            frame.src = selectedUrl;
+        }
+    </script>
+
+</body>
+</html>
